@@ -116,6 +116,7 @@ app.intent('modeOff',
       })
     return false
   }
+)
 
 app.intent('mode',
   {
