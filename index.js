@@ -54,7 +54,7 @@ app.intent('fanOff',
     "utterances": utterancesDict['fanOff']
   },
   function(request,response) {
-    samsungRequest('fan_off', function callback(resp) {
+    sensiRequest('fan_off', function callback(resp) {
       response.say(resp)
       response.send();
     })
@@ -68,7 +68,7 @@ app.intent('fan',
     "utterances": utterancesDict['fan']
   },
   function(request,response) {
-    samsungRequest('fan', function callback(resp) {
+    sensiRequest('fan', function callback(resp) {
         response.say(resp)
         response.send();
     })
@@ -82,7 +82,7 @@ app.intent('modeHeat',
     "utterances": utterancesDict['modeHeat']
   },
   function(request,response) {
-    samsungRequest('mode_heat', function callback(resp) {
+    sensiRequest('mode_heat', function callback(resp) {
       response.say(resp)
       response.send()
     })
@@ -96,7 +96,7 @@ app.intent('modeCool',
     "utterances": utterancesDict['modeCool']
   },
   function(request,response) {
-    samsungRequest('mode_cool', function callback(resp) {
+    sensiRequest('mode_cool', function callback(resp) {
       response.say(resp)
       response.send()
     })
@@ -110,7 +110,7 @@ app.intent('modeOff',
     "utterances": utterancesDict['modeOff']
   },
   function(request,response) {
-    samsungRequest('mode_off', function callback(resp) {
+    sensiRequest('mode_off', function callback(resp) {
         response.say(resp)
         response.send()
       })
@@ -124,7 +124,7 @@ app.intent('mode',
     "utterances": utterancesDict['mode']
   },
   function(request,response) {
-    samsungRequest('mode', function callback(resp) {
+    sensiRequest('mode', function callback(resp) {
         response.say(resp)
         response.send()
       })
@@ -138,7 +138,7 @@ app.intent('temp',
     "utterances": utterancesDict['temp']
   },
   function(request,response) {
-    samsungRequest('temp', function callback(resp) {
+    sensiRequest('temp', function callback(resp) {
         response.say(resp)
         response.send()
       })
@@ -153,7 +153,7 @@ app.intent('tempSet',
   },
   function(request,response) {
     var temp = request.slot('temperature')
-    samsungRequest('temp_set?temp=' + temp, function callback(resp) {
+    sensiRequest('temp_set?temp=' + temp, function callback(resp) {
         response.say(resp)
         response.send()
       })
