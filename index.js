@@ -22,7 +22,7 @@ var utterancesDict = {
 }
 
 var sensiRequest = function(endpoint, cb) {
-  req('https://af0fea0f.ngrok.io/' + endpoint, function (err, response, body) {
+  req(process.env.SENSI_URL + endpoint, function (err, response, body) {
     if (!err && response.statusCode == 200) {
       return cb(body)
      } else {
