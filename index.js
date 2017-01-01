@@ -13,11 +13,11 @@ app.error = function( exception, request, response ) {
 }
 
 var utterancesDict = {
-  'fanOn': ['on'],
+  'fanOn': ['fan on'],
   'fanOff': ['fan off'],
   'modeHeat': ['heat'],
   'modeCool': ['cool'],
-  'modeOff': ['mode off'],
+  'modeOff': ['off'],
   'tempSet': ['set temperature {temperature}']
 }
 
@@ -32,7 +32,7 @@ var sensiRequest = function(endpoint, cb) {
 }
 
 app.launch(function(request, response) {
-  sensiRequest('fan_on', function callback(resp) {
+  sensiRequest('status', function callback(resp) {
       response.say(resp).shouldEndSession(false)
       response.send();
   })
