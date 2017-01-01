@@ -18,7 +18,7 @@ var utterancesDict = {
   'modeHeat': ['heat'],
   'modeCool': ['cool'],
   'modeOff': ['off'],
-  'status': ['status']
+  'status': ['status'],
   'tempSet': ['set temperature {temperature}']
 }
 
