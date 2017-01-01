@@ -21,8 +21,6 @@ var utterancesDict = {
   'tempSet': ['set temperature {temperature}']
 }
 
-console.log(process.env)
-
 var sensiRequest = function(endpoint, cb) {
   req(process.env.SENSI_URL + endpoint, function (err, response, body) {
     if (!err && response.statusCode == 200) {
