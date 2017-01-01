@@ -15,17 +15,15 @@ app.error = function( exception, request, response ) {
 var utterancesDict = {
   'fanOn': ['fan on'],
   'fanOff': ['fan off'],
-  'fan': ['fan status'],
   'modeHeat': ['set heat'],
   'modeCool': ['set cool'],
   'modeOff': ['off'],
-  'mode': ['mode'],
-  'temp': ['temperature'],
+  'status': ['status'],
   'tempSet': ['set temperature {temperature}']
 }
 
 var sensiRequest = function(endpoint, cb) {
-  req('https://14b666ed.ngrok.io/' + endpoint, function (err, response, body) {
+  req('https://af0fea0f.ngrok.io/' + endpoint, function (err, response, body) {
     if (!err && response.statusCode == 200) {
       return cb(body)
      } else {
@@ -57,20 +55,6 @@ app.intent('fanOff',
     sensiRequest('fan_off', function callback(resp) {
       response.say(resp)
       response.send();
-    })
-    return false
-  }
-)
-
-app.intent('fan',
-  {
-    "slots":{},
-    "utterances": utterancesDict['fan']
-  },
-  function(request,response) {
-    sensiRequest('fan', function callback(resp) {
-        response.say(resp)
-        response.send();
     })
     return false
   }
@@ -118,30 +102,17 @@ app.intent('modeOff',
   }
 )
 
-app.intent('mode',
-  {
-    "slots":{},
-    "utterances": utterancesDict['mode']
-  },
-  function(request,response) {
-    sensiRequest('mode', function callback(resp) {
-        response.say(resp)
-        response.send()
-      })
-    return false
-  }
-)
 
-app.intent('temp',
+app.intent('status',
   {
     "slots":{},
-    "utterances": utterancesDict['temp']
+    "utterances": utterancesDict['status']
   },
   function(request,response) {
-    sensiRequest('temp', function callback(resp) {
+    sensiRequest('status', function callback(resp) {
         response.say(resp)
-        response.send()
-      })
+        response.send();
+    })
     return false
   }
 )
