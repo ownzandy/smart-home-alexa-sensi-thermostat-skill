@@ -4,6 +4,7 @@ module.change_code = 1
 var req = require('request')
 var alexa = require('alexa-app')
 var app = new alexa.app('sensi-skill')
+require('dotenv').config();
 
 app.error = function( exception, request, response ) {
   console.log(exception)
