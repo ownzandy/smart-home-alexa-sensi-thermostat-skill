@@ -32,7 +32,7 @@ var sensiRequest = function(endpoint, cb) {
 }
 
 app.launch(function(request, response) {
-  sensiRequest('status', function callback(resp) {
+  sensiRequest('/status', function callback(resp) {
       response.say(resp).shouldEndSession(false)
       response.send();
   })
@@ -45,7 +45,7 @@ app.intent('fanOn',
     "utterances": utterancesDict['fanOn']
   },
   function(request,response) {
-    sensiRequest('fan_on', function callback(resp) {
+    sensiRequest('/fan_on', function callback(resp) {
       response.say(resp)
       response.send();
     })
@@ -59,7 +59,7 @@ app.intent('fanOff',
     "utterances": utterancesDict['fanOff']
   },
   function(request,response) {
-    sensiRequest('fan_off', function callback(resp) {
+    sensiRequest('/fan_off', function callback(resp) {
       response.say(resp)
       response.send();
     })
@@ -73,7 +73,7 @@ app.intent('modeHeat',
     "utterances": utterancesDict['modeHeat']
   },
   function(request,response) {
-    sensiRequest('mode_heat', function callback(resp) {
+    sensiRequest('/mode_heat', function callback(resp) {
       response.say(resp)
       response.send()
     })
@@ -87,7 +87,7 @@ app.intent('modeCool',
     "utterances": utterancesDict['modeCool']
   },
   function(request,response) {
-    sensiRequest('mode_cool', function callback(resp) {
+    sensiRequest('/mode_cool', function callback(resp) {
       response.say(resp)
       response.send()
     })
@@ -101,7 +101,7 @@ app.intent('modeOff',
     "utterances": utterancesDict['modeOff']
   },
   function(request,response) {
-    sensiRequest('mode_off', function callback(resp) {
+    sensiRequest('/mode_off', function callback(resp) {
         response.say(resp)
         response.send()
       })
@@ -116,7 +116,7 @@ app.intent('tempSet',
   },
   function(request,response) {
     var temp = request.slot('temperature')
-    sensiRequest('temp_set?temp=' + temp, function callback(resp) {
+    sensiRequest('/temp_set?temp=' + temp, function callback(resp) {
         response.say(resp)
         response.send()
       })
