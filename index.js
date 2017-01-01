@@ -18,6 +18,7 @@ var utterancesDict = {
   'modeHeat': ['heat'],
   'modeCool': ['cool'],
   'modeOff': ['off'],
+  'status': ['status']
   'tempSet': ['set temperature {temperature}']
 }
 
@@ -30,14 +31,6 @@ var sensiRequest = function(endpoint, cb) {
      }
   })
 }
-
-app.launch(function(request, response) {
-  sensiRequest('/status', function callback(resp) {
-      response.say(resp).shouldEndSession(false)
-      response.send();
-  })
-  return false
-});
 
 app.intent('fanOn',
   {
@@ -106,6 +99,20 @@ app.intent('modeOff',
         response.send()
       })
     return false
+  }
+)
+
+app.intent('status',
+  {
+    "slots":{},
+    "utterances": utterancesDict['status']
+  },
+  function(request,response) {
+    sensiRequest('/status', function callback(resp) {
+      response.say(resp)
+      response.send();
+    })
+  return false
   }
 )
 
