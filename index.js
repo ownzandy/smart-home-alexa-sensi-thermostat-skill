@@ -4,7 +4,6 @@ module.change_code = 1
 var req = require('request')
 var alexa = require('alexa-app')
 var app = new alexa.app('sensi-skill')
-require('dotenv').config();
 
 app.error = function( exception, request, response ) {
   console.log(exception)
@@ -21,6 +20,8 @@ var utterancesDict = {
   'modeOff': ['off'],
   'tempSet': ['set temperature {temperature}']
 }
+
+console.log(process.env)
 
 var sensiRequest = function(endpoint, cb) {
   req(process.env.SENSI_URL + endpoint, function (err, response, body) {

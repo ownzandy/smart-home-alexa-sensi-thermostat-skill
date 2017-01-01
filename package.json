@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "alexa-app": "^2.3.4",
-    "dotenv": "^2.0.0",
     "request": "^2.79.0"
   }
 }
