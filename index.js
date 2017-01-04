@@ -17,17 +17,17 @@ var utterancesDict = {
   'fanOff': ['fan off'],
   'modeHeat': ['heat'],
   'modeCool': ['cool'],
-  'modeOff': ['off'],
+  // 'modeOff': ['off'],
   'status': ['state'],
   'tempSet': ['set temperature {temperature}']
 }
 
 var sensiRequest = function(endpoint, cb) {
-  req(process.env.SERVER_URL + '/sensi' + endpoint, {'auth': {'user': process.env.USER, 'password': process.env.PASSWORD} }, function (err, response, body) {
+  req(process.env.SERVER_URL + '/sensi' + endpoint, {'auth': {'user': process.env.USER, 'password': process.env.PASSWORD} }function (err, response, body) {
     if (!err && response.statusCode == 200) {
       return cb(body)
      } else {
-      return cb(err)
+      return cb('Could not process your request')
      }
   })
 }
@@ -88,19 +88,19 @@ app.intent('modeCool',
   }
 )
 
-app.intent('modeOff',
-  {
-    "slots":{},
-    "utterances": utterancesDict['modeOff']
-  },
-  function(request,response) {
-    sensiRequest('/mode_off', function callback(resp) {
-        response.say(resp)
-        response.send()
-      })
-    return false
-  }
-)
+// app.intent('modeOff',
+//   {
+//     "slots":{},
+//     "utterances": utterancesDict['modeOff']
+//   },
+//   function(request,response) {
+//     sensiRequest('/mode_off', function callback(resp) {
+//         response.say(resp)
+//         response.send()
+//       })
+//     return false
+//   }
+// )
 
 app.intent('status',
   {
