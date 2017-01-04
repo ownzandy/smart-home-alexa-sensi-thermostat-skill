@@ -23,7 +23,7 @@ var utterancesDict = {
 }
 
 var sensiRequest = function(endpoint, cb) {
-  req('http://localhost:4567' + endpoint, {'auth': {'user': process.env.USER, 'password': process.env.PASSWORD} }function (err, response, body) {
+  req('http://localhost:4567' + endpoint, {'auth': {'user': process.env.USER, 'password': process.env.PASSWORD} }, function (err, response, body) {
     if (!err && response.statusCode == 200) {
       return cb(body)
      } else {
