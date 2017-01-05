@@ -13,12 +13,12 @@ app.error = function( exception, request, response ) {
 }
 
 var utterancesDict = {
-  'fanOn': ['fan on'],
-  'fanOff': ['fan off'],
+  'fanOn': ['on'],
+  'fanOff': ['off'],
   'modeHeat': ['heat'],
   'modeCool': ['cool'],
   // 'modeOff': ['off'],
-  'status': ['state'],
+  'status': ['state',' status', 'statics'],
   'tempSet': ['set temperature {temperature}']
 }
 
